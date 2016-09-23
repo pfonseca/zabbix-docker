@@ -49,3 +49,33 @@ services:
       - ZBX_SERVER_HOST=app
     depends_on:
       - app
+  client_2:
+    image: zabbix/zabbix-agent:ubuntu-3.0-latest
+    environment:
+      - ZBX_HOSTNAME=client_2
+      - ZBX_SERVER_HOST=app
+    depends_on:
+      - app
+  client_3:
+    image: zabbix/zabbix-agent:ubuntu-3.0-latest
+    environment:
+      - ZBX_HOSTNAME=client_3
+      - ZBX_SERVER_HOST=app
+    depends_on:
+      - app
+  client_4:
+    image: zabbix/zabbix-agent:ubuntu-3.0-latest
+    environment:
+      - ZBX_HOSTNAME=client_4
+      - ZBX_SERVER_HOST=proxy
+    depends_on:
+      - proxy
+  client_5:
+    image: zabbix/zabbix-agent:ubuntu-3.0-latest
+    environment:
+      - ZBX_HOSTNAME=client_5
+      - ZBX_SERVER_HOST=proxy
+    depends_on:
+      - proxy
+  ftp_server:
+    image: ustclug/ftp
